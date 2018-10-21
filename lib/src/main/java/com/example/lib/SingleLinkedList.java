@@ -1,9 +1,11 @@
 package com.example.lib;
 
-public class MyClass {
+
+/*单链表反转*/
+public class SingleLinkedList {
     private  DataNode head;
 
-    public MyClass(int size) {
+    public SingleLinkedList(int size) {
         DataNode head = new DataNode(0);
         DataNode cur = head;
         for (int i = 1; i < size; i++) {
@@ -50,7 +52,7 @@ public class MyClass {
 //    }
 
     public static void main(String[] strings) {
-        MyClass chain = new MyClass(10);
+        SingleLinkedList chain = new SingleLinkedList(10);
 
         chain.printChain(chain.getHead());
         DataNode dataNode=chain.reverse1(chain.getHead());
