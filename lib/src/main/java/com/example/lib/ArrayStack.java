@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Creator :Wen
  * DataTime: 2018/10/14
- * Description:
+ * Description:数组插入与删除
  */
 public class ArrayStack {
     private String[] items;//数组
