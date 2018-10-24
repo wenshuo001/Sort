@@ -7,7 +7,7 @@ package com.example.lib;
  */
 public class DataNode {
     private int data;
-    private DataNode next;
+    public DataNode next;
     public int getData() {
         return data;
     }
