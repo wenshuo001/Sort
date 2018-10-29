@@ -1,7 +1,7 @@
 package com.example.lib;
 
 
-/*单链表反转*/
+/*单链表操作*/
 public class SingleLinkedList {
     private  DataNode head;
 
@@ -47,17 +47,58 @@ public class SingleLinkedList {
         return revhead;
     }
 
-//    public DataNode reverse2(){
-//
-//    }
-
-    public static void main(String[] strings) {
-        SingleLinkedList chain = new SingleLinkedList(10);
-
-        chain.printChain(chain.getHead());
-        DataNode dataNode=chain.reverse1(chain.getHead());
-        chain.printChain(dataNode);
-
+    //遍历实现单链表反转
+    public DataNode reverse2(DataNode head){
+        if(head!=null){
+            DataNode prevNode=head;//上一个结点
+            DataNode currentNode=head.getNext();//当前结点
+            DataNode tempNode;//临时结点
+            while (currentNode!=null){
+                tempNode=currentNode.getNext();
+                currentNode.setNext(prevNode);
+                //指向移动
+                prevNode = currentNode;
+                currentNode =tempNode;
+            }
+            head.setNext(null);
+            return prevNode;
+        }
+        return null;
     }
 
+    public static void main(String[] strings) {
+        SingleLinkedList chain = new SingleLinkedList(5);
+
+        chain.printChain(chain.getHead());
+       // DataNode dataNode=chain.reverse1(chain.getHead());
+       // chain.printChain(dataNode);
+        chain.removeNthFromEnd(chain.getHead(),2);
+        chain.printChain(chain.getHead());
+    }
+
+
+    public DataNode removeNthFromEnd(DataNode head, int n) {
+        int count=1;
+        DataNode cur=head;
+        DataNode countNode=head;
+        while(countNode.getNext()!=null){
+            countNode=countNode.getNext();
+            count++;
+        }
+
+        int length=1;
+        int index=count-n;
+        if(index==0){
+            return head.getNext();
+        }
+        while(cur.getNext()!=null){
+            if(index==length++){
+                cur.next = cur.getNext().getNext();
+                return head;
+            }
+            cur=cur.getNext();
+        }
+
+        return head;
+    }
 }
