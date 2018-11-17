@@ -108,4 +108,18 @@ public class LruCache {
         private String key;
         private String value;
     }
+
+    public static void main(String[] args){
+         LruCache lruCache=new LruCache(5);
+         lruCache.put("001","001的信息");
+         lruCache.put("002","002的信息");
+         lruCache.put("003","003的信息");
+         lruCache.put("004","004的信息");
+         lruCache.put("005","005的信息");
+         lruCache.get("002");
+         lruCache.put("004", "用户2信息更新");
+         lruCache.put("006", "用户6信息");
+        System.out.println(lruCache.get("001"));
+        System.out.println(lruCache.get("006"));
+    }
 }
