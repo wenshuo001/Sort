@@ -3,7 +3,10 @@ package com.example.lib;
 import java.util.Arrays;
 
 /**
- * Created by  on 2018/10/29.
+ *  插入算法的核心是把数据分为已排序区间和未排序区间
+ *  取未排序区间的元素，到已排序区间中找到合适的位置插入
+ *  并保证已排序区间数据一直有序，重复这个过程，直到未排序区间中的元素为空。
+ *  算法结束
  */
 
 public class InsertSort {
